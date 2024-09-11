@@ -1,1 +1,72 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Environmental Quiz</title>
+</head>
+<body>
+  <h1>Test Your Environmental Knowledge!</h1>
+  <form id="quiz-form">
+    
+    <!-- Question 1 -->
+    <h3>1. What percentage of electronic waste is recycled globally?</h3>
+    <label>
+      <input type="radio" name="q1" value="a"> 10%
+    </label><br>
+    <label>
+      <input type="radio" name="q1" value="b"> 20%
+    </label><br>
+    <label>
+      <input type="radio" name="q1" value="c"> 30%
+    </label><br>
+    <label>
+      <input type="radio" name="q1" value="d"> 40%
+    </label><br>
+
+    <!-- Question 2 -->
+    <h3>2. Which harmful material is commonly found in old computer monitors?</h3>
+    <label>
+      <input type="radio" name="q2" value="a"> Lead
+    </label><br>
+    <label>
+      <input type="radio" name="q2" value="b"> Mercury
+    </label><br>
+    <label>
+      <input type="radio" name="q2" value="c"> Plastic
+    </label><br>
+    <label>
+      <input type="radio" name="q2" value="d"> Copper
+    </label><br>
+
+    <!-- Add more questions in the same format -->
+
+    <!-- Submit Button -->
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Feedback Section -->
+  <div id="result"></div>
+
+  <!-- Optional JavaScript for Feedback -->
+  <script>
+    document.getElementById("quiz-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      // Create a variable to hold the score
+      let score = 0;
+      
+      // Check answers
+      const q1Answer = document.querySelector('input[name="q1"]:checked');
+      const q2Answer = document.querySelector('input[name="q2"]:checked');
+
+      if (q1Answer && q1Answer.value === "b") score++;  // 20% is correct
+      if (q2Answer && q2Answer.value === "a") score++;  // Lead is correct
+
+      // Display result
+      document.getElementById("result").innerHTML = "You got " + score + " out of 2 questions correct!";
+    });
+  </script>
+
+</body>
+</html>
